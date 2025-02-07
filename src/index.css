@@ -156,41 +156,6 @@
       display: none;
     }
   }
-
-  /**
-   * Tunes
-   * ----------------
-   */
-
-  &--withBorder {
-    ^&__document-picture {
-      border: 1px solid var(--border-color);
-    }
-  }
-
-  &--withBackground {
-    ^&__document {
-      padding: 24px;
-      background: var(--bg-color);
-
-      &-picture {
-        max-width: 80%;
-        margin: 0 auto;
-      }
-    }
-  }
-
-  &--stretched {
-    ^&__document {
-      margin-left: -56px;
-      margin-right: -56px;
-
-      &-caption {
-        margin-left: 56px;
-        margin-right: 56px;
-      }
-    }
-  }
 }
 
 @keyframes document-preloader-spin {

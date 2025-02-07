@@ -4,7 +4,6 @@ import { make } from './utils/dom';
  * Class for working with UI:
  *  - rendering base structure
  *  - show/hide preview
- *  - apply tune view
  */
 export default class Ui {
   /**
@@ -205,16 +204,5 @@ export default class Ui {
         this.nodes.wrapper.classList.toggle(`${this.CSS.wrapper}--${Ui.status[statusType]}`, status === Ui.status[statusType]);
       }
     }
-  }
-
-  /**
-   * Apply visual representation of activated tune
-   *
-   * @param {string} tuneName - one of available tunes {@link Tunes.tunes}
-   * @param {boolean} status - true for enable, false for disable
-   * @returns {void}
-   */
-  applyTune(tuneName, status) {
-    this.nodes.wrapper.classList.toggle(`${this.CSS.wrapper}--${tuneName}`, status);
   }
 }
