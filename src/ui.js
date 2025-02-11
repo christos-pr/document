@@ -156,13 +156,21 @@ export default class Ui {
 
     const eventName = 'load';
 
-    /**
-     * Compose tag with defined attributes
-     *
-     * @type {Element}
-     */
-    this.nodes.documentElement = make('IMG', this.CSS.documentElement, attributes);
+    if (file.sizes && file.sizes.medium && file.sizes.medium.url) {
+      // Create preview image element for documents with preview
+      const previewAttributes = {
+        src: file.sizes.medium.url,
+        width: file.sizes.medium.width,
+        height: file.sizes.medium.height
+      };
+      this.nodes.documentElement = make('img', [this.CSS.documentElement], previewAttributes);
+    } else {
+      // Create icon element for documents without preview
+      this.nodes.documentElement = make('img', [this.CSS.documentElement], attributes);
+    }
+
     this.nodes.documentTitle.innerHTML = file.title;
+
     /**
      * Add load event listener
      */
