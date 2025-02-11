@@ -243,14 +243,14 @@ export default class DocumentTool {
    * @param {string} currentAlign - The alignment type to set ('left', 'center', or 'right')
    */
   updateAlign(currentAlign) {
-    if (this.data.align === currentAlign && this.ui.nodes.wrapper.classList.contains(`cdx-pr-document--${currentAlign}`)) {
+    if (this.data.align === currentAlign && this.ui.nodes.wrapper.classList.contains(`document-tool--${currentAlign}`)) {
       return;
     }
 
     this.data.align = currentAlign;
 
     this.aligns.forEach(align => {
-      this.ui.nodes.wrapper.classList.toggle(`cdx-pr-document--${align.name}`, this.data.align === align.name);
+      this.ui.nodes.wrapper.classList.toggle(`document-tool--${align.name}`, this.data.align === align.name);
     });
   }
 

@@ -21,6 +21,7 @@ export default class Ui {
     this.nodes = {
       wrapper: make('div', [this.CSS.baseClass, this.CSS.wrapper]),
       documentContainer: make('div', [ this.CSS.documentContainer ]),
+      documentContent: make('div', [ this.CSS.documentContent ]),
       fileButton: this.createFileButton(),
       documentTitle: make('span', this.CSS.documentTitle),
       documentElement: undefined,
@@ -42,7 +43,8 @@ export default class Ui {
      *  </wrapper>
      */
     this.nodes.caption.dataset.placeholder = this.config.captionPlaceholder;
-    this.nodes.documentContainer.appendChild(this.nodes.documentPreloader);
+    this.nodes.documentContent.appendChild(this.nodes.documentPreloader);
+    this.nodes.documentContainer.appendChild(this.nodes.documentContent);
     this.nodes.wrapper.appendChild(this.nodes.documentContainer);
     this.nodes.wrapper.appendChild(this.nodes.caption);
     this.nodes.wrapper.appendChild(this.nodes.fileButton);
@@ -65,6 +67,7 @@ export default class Ui {
        */
       wrapper: 'document-tool',
       documentContainer: 'document-tool__document',
+      documentContent: 'document-tool__document-content',
       documentPreloader: 'document-tool__document-preloader',
       documentTitle: 'document-tool__document-title',
       documentElement: 'document-tool__document-element',
@@ -184,8 +187,8 @@ export default class Ui {
         this.nodes.documentPreloader.style.backgroundImage = '';
       }
     });
-    this.nodes.documentContainer.appendChild(this.nodes.documentElement);
-    this.nodes.documentContainer.appendChild(this.nodes.documentTitle);
+    this.nodes.documentContent.appendChild(this.nodes.documentElement);
+    this.nodes.documentContent.appendChild(this.nodes.documentTitle);
   }
 
   /**
